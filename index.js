@@ -2,6 +2,7 @@
 
 const fs = require('fs-extra');
 const replace = require('replace');
+const packageJson = require('./package.json');
 
 const walkAsync = (path) => {
     return new Promise((resolve, reject) => {
@@ -92,6 +93,7 @@ const regexReplace = (searchString, replaceString, path, customOptions = {}) => 
 
 const argv = process.argv;
 const [ cmd, cmdFile, searchString, replaceString, path, ...options ] = argv;
+const isVersionFlag = (argv[2] === '-v');
 
 const customOptions = options.reduce((acc, value, key) => {
     switch (value) {
@@ -113,10 +115,12 @@ const customOptions = options.reduce((acc, value, key) => {
     return acc;
 }, {});
 
-if(searchString && replaceString && path) {
+if((searchString && replaceString && path) && !isVersionFlag) {
     regexReplace(searchString, replaceString, path, customOptions);
-} else {
+} else if (!isVersionFlag){
     console.error('missing required arguments: (<searchString>, <replaceString>, <path>, [options])');
+} else if(isVersionFlag) {
+    console.log(packageJson.version);
 }
 
 module.exports = regexReplace;

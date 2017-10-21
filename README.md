@@ -29,6 +29,11 @@ Replace filenames only
 regex-replace 'search string' 'replace string' './path/to/recursively/replace' --filenames
 ```
 
+Version
+```bash
+regex-replace -v
+```
+
 ###### Module Example
 ```javascript
 import regexReplace from 'regex-replace';
