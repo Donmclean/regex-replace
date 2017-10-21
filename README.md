@@ -1,7 +1,7 @@
 # regex-replace
 A simple CLI/Module for regex replacing strings in files &amp; renaming files recursively
 
-[![npm](https://img.shields.io/badge/npm-v1.1.0-blue.svg)](https://www.npmjs.com/package/regex-replace) [![Build Status](https://travis-ci.org/Donmclean/regex-replace.svg?branch=master)](https://travis-ci.org/Donmclean/regex-replace) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Donmclean/riko/blob/master/LICENSE)
+[![npm](https://img.shields.io/badge/npm-v1.1.1-blue.svg)](https://www.npmjs.com/package/regex-replace) [![Build Status](https://travis-ci.org/Donmclean/regex-replace.svg?branch=master)](https://travis-ci.org/Donmclean/regex-replace) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Donmclean/riko/blob/master/LICENSE)
 
 ## Getting Started
 This library can be used both locally as a module or globally as a CLI.
