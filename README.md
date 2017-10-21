@@ -80,8 +80,8 @@ const doRegexReplace = async function() {
 regexReplacer(searchString, replaceString, path, options)
 ```
 
-- Returns **promise**
-- Options:
+- **Returns** _promise_
+- **Options**:
     - filenamesOnly: `false` default
     - fileContentsOnly: `false` default
 
