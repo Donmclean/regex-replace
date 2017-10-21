@@ -14,6 +14,11 @@
     "version": "node ./publishScript.js && git add .",
     "postversion": "npm publish && git push --follow-tags"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Donmclean/regex-replace.git"
+  },
+  "homepage": "https://github.com/Donmclean/regex-replace",
   "keywords": [
     "replace",
     "recursive",
