@@ -1,12 +1,12 @@
 {
-  "name": "regex-replacer",
+  "name": "regex-replace",
   "author": "Don Mclean",
   "version": "0.0.2",
   "description": "A simple CLI/Module for regex replacing strings in files & renaming files recursively",
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
-    "regex-replacer": "./index.js"
+    "regex-replace": "./index.js"
   },
   "license": "MIT",
   "scripts": {

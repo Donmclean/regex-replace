@@ -1,37 +1,37 @@
-# regex-replacer
+# regex-replace
 A simple CLI/Module for regex replacing strings in files &amp; renaming files recursively
 
-[![npm](https://img.shields.io/badge/npm-v0.0.2-blue.svg)](https://www.npmjs.com/package/regex-replacer) [![Build Status](https://travis-ci.org/Donmclean/regex-replacer.svg?branch=master)](https://travis-ci.org/Donmclean/regex-replacer) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Donmclean/riko/blob/master/LICENSE)
+[![npm](https://img.shields.io/badge/npm-v0.0.2-blue.svg)](https://www.npmjs.com/package/regex-replace) [![Build Status](https://travis-ci.org/Donmclean/regex-replacer.svg?branch=master)](https://travis-ci.org/Donmclean/regex-replacer) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Donmclean/riko/blob/master/LICENSE)
 
 ## Getting Started
 This library can be used both locally as a module or globally as a CLI.
 Simply choose which you'd like via the install command below.
 
-local: `npm install regex-replacer`
+local: `npm install regex-replace`
 
-global: `npm install -g regex-replacer`
+global: `npm install -g regex-replace`
 
 ## Code Example
 
 ###### CLI Example
 Replace filenames and file contents
 ```bash
-regex-replacer 'search string' 'replace string' './path/to/recursively/replace'
+regex-replace 'search string' 'replace string' './path/to/recursively/replace'
 ```
 
 Replace file content only
 ```bash
-regex-replacer 'search string' 'replace string' './path/to/recursively/replace' --filecontents
+regex-replace 'search string' 'replace string' './path/to/recursively/replace' --filecontents
 ```
 
 Replace filenames only
 ```bash
-regex-replacer 'search string' 'replace string' './path/to/recursively/replace' --filenames
+regex-replace 'search string' 'replace string' './path/to/recursively/replace' --filenames
 ```
 
 ###### Module Example
 ```javascript
-import regexReplacer from 'regex-replacer';
+import regexReplace from 'regex-replace';
 
 const searchString = 'string to search for';
 const replaceString = 'string to replace with';
@@ -43,7 +43,7 @@ const options = {
 };
 
 //promise
-regexReplacer(searchString, replaceString, path, options)
+regexReplace(searchString, replaceString, path, options)
     .then(() => {
         //do something after successful regex replace
     })
@@ -54,9 +54,9 @@ regexReplacer(searchString, replaceString, path, options)
 //async/await
 const doRegexReplace = async function() {
     try {
-        await regexReplacer(searchString, replaceString, path, options);
+        await regexReplace(searchString, replaceString, path, options);
     } catch (err) {
-        console.error('err > regexReplacer > testing', err);
+        console.error('err > regexReplace > testing', err);
     }
 }
 
@@ -70,14 +70,14 @@ const doRegexReplace = async function() {
 
 ## API Reference
 ###### CLI Example
-- `regex-replacer searchString replaceString path`
+- `regex-replace searchString replaceString path`
 - Flags:
     - `--filename` or `--filenames` For filenames only
     - `--filecontent` or `--filecontents` For file contents only
 
 ###### Module Example
 ```javascript
-regexReplacer(searchString, replaceString, path, options)
+regexReplace(searchString, replaceString, path, options)
 ```
 
 - **Returns** _promise_
@@ -88,7 +88,7 @@ regexReplacer(searchString, replaceString, path, options)
 
 ## Running the tests
 - Fork or clone
-- cd into `regex-replacer`
+- cd into `regex-replace`
 - run `yarn` or `npm install`
 - `npm test`
 
@@ -98,13 +98,13 @@ Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on code of conduct,
 
 ## Versioning
 
-[SemVer](http://semver.org/) is used for versioning. For the versions available, see the [releases on this repository](https://github.com/Donmclean/regex-replacer/releases).
+[SemVer](http://semver.org/) is used for versioning. For the versions available, see the [releases on this repository](https://github.com/Donmclean/regex-replace/releases).
 
 ## Authors
 
 * [**Don Mclean**](https://github.com/Donmclean)
 
-See also the list of [contributors](https://github.com/Donmclean/regex-replacer/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Donmclean/regex-replace/contributors) who participated in this project.
 
 ## License
 

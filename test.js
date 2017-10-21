@@ -1,4 +1,4 @@
-const regexReplacer = require('./index');
+const regexReplace = require('./index');
 const fs = require('fs-extra');
 const assert = require('assert');
 
@@ -8,13 +8,13 @@ const replaceString = 'replace works';
 const sourcePath = './test-bin';
 const copyPath = './test-bin2';
 
-describe('regexReplacer', () => {
+describe('regexReplace', () => {
     it('should successfully regex replace searchString in file', (done) => {
         fs.copy(sourcePath, copyPath).then( async () => {
             try {
-                await regexReplacer(searchString, replaceString, copyPath);
+                await regexReplace(searchString, replaceString, copyPath);
             } catch (err) {
-                console.error('err > regexReplacer > testing', err);
+                console.error('err > regexReplace > testing', err);
             }
 
             const module1 = require('./test-bin2');
@@ -37,9 +37,9 @@ describe('regexReplacer', () => {
     it('should successfully regex replace matching filenames with replaceString recursively', (done) => {
         fs.copy(sourcePath, copyPath).then(async () => {
             try {
-                await regexReplacer(searchString, replaceString, copyPath);
+                await regexReplace(searchString, replaceString, copyPath);
             } catch (err) {
-                console.error('err > regexReplacer > testing', err);
+                console.error('err > regexReplace > testing', err);
             }
 
             let filesInCopiedDir;
