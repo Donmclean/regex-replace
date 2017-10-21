@@ -8,6 +8,7 @@ This library can be used both locally as a module or globally as a CLI.
 Simply choose which you'd like via the install command below.
 
 local: `npm install regex-replacer`
+
 global: `npm install -g regex-replacer`
 
 ## Code Example
