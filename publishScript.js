@@ -1,6 +1,6 @@
-import packageJson from './package.json';
-import path from 'path';
-import fs from 'fs-extra';
+const packageJson = require('./package.json');
+const path = require('path');
+const fs = require('fs-extra');
 
 const readMePath    = path.resolve(__dirname, `./README.md`);
 const readMe        = fs.readFileSync(readMePath, 'utf8');
