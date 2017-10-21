@@ -14,16 +14,19 @@ global: `npm install -g regex-replacer`
 ## Code Example
 
 ###### CLI Example
+Replace filenames and file contents
 ```bash
-#Replace filenames and file contents
 regex-replacer 'search string' 'replace string' './path/to/recursively/replace'
+```
 
-#Replace file content only
+Replace file content only
+```bash
 regex-replacer 'search string' 'replace string' './path/to/recursively/replace' --filecontents
+```
 
-#Replace filenames only
+Replace filenames only
+```bash
 regex-replacer 'search string' 'replace string' './path/to/recursively/replace' --filenames
-
 ```
 
 ###### Module Example
