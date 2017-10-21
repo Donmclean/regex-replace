@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha test.js",
-    "version": "babel-node ./publishScript.js && git add .",
+    "version": "node ./publishScript.js && git add .",
     "postversion": "npm publish && git push --follow-tags"
   },
   "keywords": [
