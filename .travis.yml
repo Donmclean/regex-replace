@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "7.3.0"
+script:
+  - npm run test
+#after_script:
+#  - yarn global add codeclimate-test-reporter
+#  - yarn run test-coverage
