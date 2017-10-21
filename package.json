@@ -10,7 +10,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha test.js",
+    "version": "babel-node ./publishScript.js && git add .",
+    "postversion": "npm publish && git push --follow-tags"
   },
   "keywords": [
     "replace",
@@ -23,6 +25,7 @@
     "replace": "^0.3.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "mocha": "^4.0.1"
   }
 }
