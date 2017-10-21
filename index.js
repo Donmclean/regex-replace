@@ -37,43 +37,51 @@ const walk = function(dir, done) {
     });
 };
 
-const regexReplace = async (searchString, replaceString, path, customOptions = {}) => {
-    const defaultOptions = {
-        filenamesOnly: false,
-        fileContentsOnly: false
-    };
+const regexReplace = (searchString, replaceString, path, customOptions = {}) => {
+    return new Promise( async (resolve, reject) => {
+        const defaultOptions = {
+            filenamesOnly: false,
+            fileContentsOnly: false
+        };
 
-    const { filenamesOnly, fileContentsOnly } = Object.assign({}, defaultOptions, customOptions);
+        const { filenamesOnly, fileContentsOnly } = Object.assign({}, defaultOptions, customOptions);
 
-    const pathExists = await fs.pathExists(path);
+        const pathExists = await fs.pathExists(path);
 
-    if(!pathExists) {
-        console.error(`ERROR: Path (${path}) does not exist.`);
-        return false;
-    } else {
-        const files = await walkAsync(path);
+        if(!pathExists) {
+            console.error(`ERROR: Path (${path}) does not exist.`);
+            reject(`ERROR: Path (${path}) does not exist.`);
+        } else {
+            let files;
+            try {
+                files = await walkAsync(path);
+            } catch (err) {
+                reject(err);
+            }
 
-        if(!fileContentsOnly) {
-            //renames files
-            files.forEach((file) => {
-                const renamedFile = file.replace(new RegExp(searchString, 'g'), replaceString);
-                fs.renameSync(file, renamedFile);
-            });
+            if(!fileContentsOnly) {
+                //renames files
+                files.forEach((file) => {
+                    const renamedFile = file.replace(new RegExp(searchString, 'g'), replaceString);
+                    fs.renameSync(file, renamedFile);
+                });
+            }
+
+            if(!filenamesOnly) {
+                //replaces file contents
+                replace({
+                    regex: new RegExp(searchString, 'g'),
+                    replacement: replaceString,
+                    paths: [path],
+                    recursive: true,
+                    silent: true,
+                    async: false
+                });
+            }
+
+           resolve();
         }
-
-        if(!filenamesOnly) {
-            //replaces file contents
-            replace({
-                regex: new RegExp(searchString, 'g'),
-                replacement: replaceString,
-                paths: [path],
-                recursive: true,
-                silent: true,
-            });
-        }
-
-        return true;
-    }
+    });
 };
 
 ///////////////////////
@@ -85,10 +93,12 @@ const [ cmd, cmdFile, searchString, replaceString, path, ...options ] = argv;
 
 const customOptions = options.reduce((acc, value, key) => {
     switch (value) {
+        case '--filename':
         case '--filenames': {
             acc.filenamesOnly = true;
             break;
         }
+        case '--filecontent':
         case '--filecontents': {
             acc.fileContentsOnly = true;
             break;
