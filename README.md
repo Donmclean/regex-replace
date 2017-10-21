@@ -70,14 +70,10 @@ const doRegexReplace = async function() {
 
 ## API Reference
 ###### CLI Example
-    - `regex-replacer searchString replaceString path`
-        : **flags**
-            - For filenames only
-                - '--filename'
-                - '--filenames'
-            - For file contents only
-                - '--filecontent'
-                - '--filecontents'
+- `regex-replacer searchString replaceString path`
+- Flags:
+    - `--filename` or `--filenames` For filenames only
+    - `--filecontent` or `--filecontents` For file contents only
 
 ###### Module Example
 ```javascript
