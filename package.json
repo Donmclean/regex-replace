@@ -1,7 +1,7 @@
 {
   "name": "regex-replace",
   "author": "Don Mclean",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple CLI/Module for regex replacing strings in files & renaming files recursively",
   "main": "index.js",
   "preferGlobal": true,
