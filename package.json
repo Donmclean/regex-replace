@@ -6,7 +6,7 @@
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
-    "regex-replace": "./index.js"
+    "regex-replace": "./cli.js"
   },
   "license": "MIT",
   "scripts": {
