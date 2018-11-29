@@ -56,7 +56,13 @@ const regexReplace = (searchString, replaceString, path, customOptions = {}) => 
         } else {
             let files;
             try {
-                files = await walkAsync(path);
+                const stats = fs.lstatSync(path);
+
+                if (stats.isDirectory()) {
+                    files = await walkAsync(path);
+                } else {
+                    files = [path];
+                }
             } catch (err) {
                 reject(err);
             }
